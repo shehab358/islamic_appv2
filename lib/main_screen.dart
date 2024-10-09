@@ -18,8 +18,8 @@ class _MainScreenState extends State<MainScreen> {
   List<Widget> tabs = [
     QuranTabs(),
     HadethTab(),
-    SebhaTab(),
     RadioTab(),
+    SebhaTab(),
     SettingsTab(),
   ];
   @override
