@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islamic_appv2/app_theme.dart';
 import 'package:islamic_appv2/tabs/quran/quran_tabs.dart';
+import 'package:islamic_appv2/tabs/settings/settings.dart';
 import 'package:islamic_appv2/widgets/loading_indicator.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class SuraDetailsScreen extends StatefulWidget {
@@ -25,11 +26,11 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
           args = ModalRoute.of(context)!.settings.arguments as SuraDetailsArgs;
       loadSuraFile();
     return Container(
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage(
-            "assets/images/bg3.png",
+            'assets/images/${Provider.of<SettingsProvider>(context).backGroundImageName}.png',
           ),
         ),
       ),
@@ -45,7 +46,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
             horizontal: 30,
           ),
           decoration: BoxDecoration(
-            color: AppTheme.white,
+            color: Provider.of<SettingsProvider>(context).containerColor,
             borderRadius: BorderRadius.circular(25),
           ),
           child: ayat.isEmpty

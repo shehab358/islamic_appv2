@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_appv2/app_theme.dart';
 import 'package:islamic_appv2/tabs/hadeth/hadeth.dart';
+import 'package:islamic_appv2/tabs/settings/settings.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class HadethContentScreen extends StatefulWidget {
@@ -20,11 +21,11 @@ class _HadethContentScreenState extends State<HadethContentScreen> {
   Widget build(BuildContext context) {
      Hadeth args=ModalRoute.of(context)!.settings.arguments as Hadeth;
     return Container(
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage(
-            "assets/images/bg3.png",
+            'assets/images/${Provider.of<SettingsProvider>(context).backGroundImageName}.png',
           ),
         ),
       ),
@@ -40,7 +41,7 @@ class _HadethContentScreenState extends State<HadethContentScreen> {
             horizontal: 30,
           ),
           decoration: BoxDecoration(
-            color: AppTheme.white,
+            color:  Provider.of<SettingsProvider>(context).containerColor,
             borderRadius: BorderRadius.circular(25),
           ),
           child: ListView.builder(

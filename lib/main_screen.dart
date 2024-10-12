@@ -3,7 +3,12 @@ import 'package:islamic_appv2/tabs/radio/radio_tab.dart';
 import 'package:islamic_appv2/tabs/sebha/sebha_tab.dart';
 import 'package:islamic_appv2/tabs/quran/quran_tabs.dart';
 import 'package:islamic_appv2/tabs/hadeth/hadeth_tab.dart';
+import 'package:islamic_appv2/tabs/settings/settings.dart';
 import 'package:islamic_appv2/tabs/settings/settings_tab.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+
 
 class MainScreen extends StatefulWidget {
   static String route = "/";
@@ -18,25 +23,25 @@ class _MainScreenState extends State<MainScreen> {
   List<Widget> tabs = [
     QuranTabs(),
     HadethTab(),
-    RadioTab(),
-    SebhaTab(),
-    SettingsTab(),
+    const RadioTab(),
+    const SebhaTab(),
+    const SettingsTab(),
   ];
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage(
-            "assets/images/bg3.png",
+            'assets/images/${Provider.of<SettingsProvider>(context).backGroundImageName}.png',
           ),
         ),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: const Text("اسلامي"),
+          title:  Text(AppLocalizations.of(context)!.islami),
         ),
         body: tabs[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
@@ -45,44 +50,44 @@ class _MainScreenState extends State<MainScreen> {
             currentIndex = index;
             setState(() {});
           },
-          items: const [
+          items:  [
             BottomNavigationBarItem(
-              icon: ImageIcon(
+              icon: const ImageIcon(
                 AssetImage(
                   "assets/images/quran.png",
                 ),
               ),
-              label: 'Quran',
+              label: AppLocalizations.of(context)!.quran,
             ),
             BottomNavigationBarItem(
-              icon: ImageIcon(
+              icon: const ImageIcon(
                 AssetImage(
                   "assets/images/quran-quran-svgrepo-com.png",
                 ),
               ),
-              label: "Hadeth",
+              label: AppLocalizations.of(context)!.hadeth,
             ),
             BottomNavigationBarItem(
-              icon: ImageIcon(
+              icon: const ImageIcon(
                 AssetImage(
                   "assets/images/radio.png",
                 ),
               ),
-              label: 'Radio',
+              label: AppLocalizations.of(context)!.radio,
             ),
             BottomNavigationBarItem(
-              icon: ImageIcon(
+              icon: const ImageIcon(
                 AssetImage(
                   "assets/images/sebha.png",
                 ),
               ),
-              label: 'Sebha',
+              label: AppLocalizations.of(context)!.sebha,
             ),
             BottomNavigationBarItem(
-              icon: Icon(
+              icon: const Icon(
                 Icons.settings,
               ),
-              label: 'Settings',
+              label: AppLocalizations.of(context)!.settings,
             ),
           ],
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_appv2/app_theme.dart';
+import 'package:islamic_appv2/tabs/settings/settings.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -34,7 +35,7 @@ class _SebhaTabState extends State<SebhaTab> {
             height: 81,
             width: 69,
             decoration: BoxDecoration(
-                color: AppTheme.lightPrimary,
+                color: Provider.of<SettingsProvider>(context).containerColor,
                 borderRadius: BorderRadius.circular(50)),
             child: Center(
               child: Text(
