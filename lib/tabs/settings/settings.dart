@@ -8,6 +8,7 @@ class SettingsProvider with ChangeNotifier {
 String get backGroundImageName => themeMode == ThemeMode.light ? 'bg3' : 'bg2';
 Color get containerColor => themeMode == ThemeMode.light ? AppTheme.white : AppTheme.dark;
 Color get sebhaColor => themeMode == ThemeMode.light ? AppTheme.lightPrimary : AppTheme.dark;
+Color get iconColor => themeMode == ThemeMode.light ? AppTheme.lightPrimary : AppTheme.gold;
 
   void changeTheme(ThemeMode selectedtheme) {
     themeMode = selectedtheme;
