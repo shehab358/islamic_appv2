@@ -3,11 +3,10 @@ import 'package:islamic_appv2/tabs/hadeth/hadeth.dart';
 import 'package:islamic_appv2/tabs/settings/settings.dart';
 import 'package:provider/provider.dart';
 
-// ignore: must_be_immutable
 class HadethContentScreen extends StatefulWidget {
   static const String route = "HadethContentScreenh";
 
-  HadethContentScreen({super.key});
+  const HadethContentScreen({super.key});
 
   @override
   State<HadethContentScreen> createState() => _HadethContentScreenState();
