@@ -52,7 +52,7 @@ class AppTheme {
       style: ButtonStyle(
         backgroundColor: WidgetStateProperty.all<Color>(
           lightPrimary,
-        ), // Corrected `WidgetStateProperty` to `MaterialStateProperty`
+        ), 
         minimumSize: WidgetStateProperty.all<Size>(const Size(150, 50)),
       ),
     ),
